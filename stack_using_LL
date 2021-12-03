@@ -1,0 +1,54 @@
+package com.company;
+
+public class stack {
+
+    // next class to define linkedlist node
+    class Node {
+        int value;
+        Node next;
+    }
+
+    Node head = null;
+
+
+    // Remove value from the beginning of the list for demonstrating behaviour of stack
+    int pop() {
+        if (head == null) {
+            System.out.println("empty");
+        }
+        int value = head.value;
+        head = head.next;
+        return value;
+    }
+
+    // Add value to the beginning of the list for demonstrating behaviour of stack
+    public void push(int value) {
+        Node oldHead = head;
+        head = new Node();
+        head.value = value;
+        head.next = oldHead;
+    }
+    void display(){
+        Node values=head;
+        while(values!=null)
+        {
+            System.out.print(values.value+ "->");
+            values=values.next;
+        }
+        System.out.println(" ");
+    }
+
+    public static void main(String args[]) {
+        stack lls = new stack();
+        lls.push(2);
+        lls.push(5);
+        lls.push(8);
+        lls.push(4);
+        lls.push(6);
+        lls.push(7);
+
+        System.out.println("REMOVED LinkedList: " + lls.pop());
+        System.out.println("REMOVED LinkedList: " + lls.pop());
+        lls.push(9);
+        System.out.println("REMOVED LinkedList: " + lls.pop());
+        lls.display();
